@@ -1,7 +1,7 @@
 package main
 
 import (
-//	"fmt"
+	"fmt"
 )
 
 func main() {
@@ -10,6 +10,32 @@ func main() {
 	//CalculateUsingSwitch(6, "+", 2)
 	//calculateUsingIfelse()
 	//fmt.Printf("sum = %d\n", AddTwoNum(2, 2))
+	//CalculateUsingMap()
+}
+
+func CalculateUsingMap(a int, op string, b int) int {
+	m := map[string]func(a, b int) int{
+		"+": add,
+		"-": minus,
+		"*": multiply,
+		"/": divide,
+	}
+	return m[op](a, b)
+}
+
+func add(a, b int) int {
+	return a + b
+}
+func minus(a, b int) int {
+	return a - b
+}
+
+func multiply(a, b int) int {
+	return a * b
+}
+
+func divide(a, b int) int {
+	return a / b
 }
 
 func AddTwoNum(x, y int) int {
