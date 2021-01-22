@@ -11,14 +11,18 @@ func main() {
 	//calculateUsingIfelse()
 	//CalculateUsingMap()
 }
-
-func CalculateUsingMap(a int, op string, b int) int {
+func CreateOperationMap() map[string]func(a, b int) int {
 	m := map[string]func(a, b int) int{
 		"+": func(a, b int) int { return a + b },
 		"-": func(a, b int) int { return a - b },
 		"*": func(a, b int) int { return a * b },
 		"/": func(a, b int) int { return a / b },
 	}
+	return m
+}
+
+func CalculateUsingMap(a int, op string, b int) int {
+	m := CreateOperationMap()
 	return m[op](a, b)
 }
 
