@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func TestCalculateUsingMap(t *testing.T) {
+	assert.Equal(t, 10, CalculateUsingMap(6, "+", 4))
+	assert.Equal(t, 2, CalculateUsingMap(6, "-", 4))
+	assert.Equal(t, 24, CalculateUsingMap(6, "*", 4))
+	assert.Equal(t, 1, CalculateUsingMap(6, "/", 4))
+
+}
+
 func TestCalculateUsingSwitch(t *testing.T) {
 	assert.Equal(t, 10, CalculateUsingSwitch(6, "+", 4))
 	assert.Equal(t, 2, CalculateUsingSwitch(6, "-", 4))
