@@ -17,6 +17,7 @@ func CreateOperationMap() map[string]func(a, b int) int {
 		"-": func(a, b int) int { return a - b },
 		"*": func(a, b int) int { return a * b },
 		"/": func(a, b int) int { return a / b },
+		"%": func(a, b int) int { return a % b },
 	}
 	return m
 }
@@ -27,6 +28,7 @@ func CalculateUsingMap(a int, op string, b int) int {
 }
 
 func CalculateUsingSwitch(a int, op string, b int) int {
+
 	switch op {
 	case "+":
 		return a + b
@@ -60,20 +62,9 @@ func CalculateUsingIfelse(a int, op string, b int) int {
 }
 
 func CalculateUsing3OperandsAndSameOp(a int, op1 string, b int, op2 string, c int) int {
-	switch op1 {
-	case "+":
-		return a + b + c
-	case "-":
-		return a - b - c
-	case "*":
-		return a * b * c
-	case "/":
-		return a / b / c
-	case "%":
-		return a % b % c
-	default:
-		return -1
-	}
+	m := CreateOperationMap()
+	r := m[op1](a, b)
+	return m[op2](r, c)
 }
 
 func CalculateUsing3Operands(a int, op1 string, b int, op2 string, c int) int {
