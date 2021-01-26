@@ -69,28 +69,13 @@ func CalculateUsing3OperandsAndSameOp(a int, op1 string, b int, op2 string, c in
 
 func CalculateUsing3Operands(a int, op1 string, b int, op2 string, c int) int {
 	m := CreateOperationMap()
-	if op1 == "*" && op2 == "/" {
-		r := m[op1](a, b)
-		return m[op2](r, c)
-	} else if op1 == "/" && op2 == "*" {
-		r := m[op1](a, b)
-		return m[op2](r, c)
-	} else if op1 == "/" && op2 == "/" {
+	if op1 == "/" || op1 == "*" {
 		r := m[op1](a, b)
 		return m[op2](r, c)
 	} else if op2 == "*" || op2 == "/" {
 		r := m[op2](b, c)
 		return m[op1](a, r)
 	}
-
-	// a op1 b op2 c
-	// a op1 r
-	// 6 * 4 / 5
-	// 6 * 0
-	// 0
-	// 6 * 4 / 5
-	// 24 / 5
-	// 4
 	r := m[op1](a, b)
 	return m[op2](r, c)
 }
