@@ -54,5 +54,93 @@ func TestCalculateUsing3Operands(t *testing.T) {
 	assert.Equal(t, -1, CalculateUsing3Operands(6, "/", 4, "-", 2))
 	assert.Equal(t, 2, CalculateUsing3Operands(6, "/", 4, "*", 2))
 	assert.Equal(t, 0, CalculateUsing3Operands(6, "/", 4, "/", 2))
-
 }
+
+// func TestCalculateUsing4OperandsAndSameOp(t *testing.T) {
+// 	assert.Equal(t, 15, CalculateUsing4OperandsAndSameOp(6, "+", 4, "+", 3, "+", 2))
+// 	assert.Equal(t, -3, CalculateUsing4OperandsAndSameOp(6, "-", 4, "-", 3, "-", 2))
+// 	assert.Equal(t, 144, CalculateUsing4OperandsAndSameOp(6, "*", 4, "*", 3, "*", 2))
+// 	assert.Equal(t, 0, CalculateUsing4OperandsAndSameOp(6, "/", 4, "/", 3, "/", 2))
+// }
+//
+// func TestCalculateUsing4Operands(t *testing.T) {
+// 	assert.Equal(t, 12, CalculateUsing4Operands(2, "+", 4, "+", 4, "+", 2))
+// 	assert.Equal(t, 12, CalculateUsing4Operands(6, "+", 4, "+", 4, "-", 2))
+// 	assert.Equal(t, 18, CalculateUsing4Operands(6, "+", 4, "+", 4, "*", 2))
+// 	assert.Equal(t, 12, CalculateUsing4Operands(6, "+", 4, "+", 4, "/", 2))
+//
+// 	assert.Equal(t, 11, CalculateUsing4Operands(6, "+", 4, "-", 3, "+", 4))
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "+", 4, "-", 3, "-", 4))
+// 	assert.Equal(t, -2, CalculateUsing4Operands(6, "+", 4, "-", 3, "*", 4))
+// 	assert.Equal(t, 10, CalculateUsing4Operands(6, "+", 4, "-", 3, "/", 4))
+//
+// 	assert.Equal(t, 32, CalculateUsing4Operands(6, "+", 4, "*", 5, "+", 6))
+// 	assert.Equal(t, 20, CalculateUsing4Operands(6, "+", 4, "*", 5, "-", 6))
+// 	assert.Equal(t, 126, CalculateUsing4Operands(6, "+", 4, "*", 5, "*", 6))
+// 	assert.Equal(t, 9, CalculateUsing4Operands(6, "+", 4, "*", 5, "/", 6))
+//
+// 	assert.Equal(t, 9, CalculateUsing4Operands(6, "+", 4, "/", 2, "+", 1))
+// 	assert.Equal(t, 7, CalculateUsing4Operands(6, "+", 4, "/", 2, "-", 1))
+// 	assert.Equal(t, 8, CalculateUsing4Operands(6, "+", 4, "/", 2, "*", 1))
+// 	assert.Equal(t, 8, CalculateUsing4Operands(6, "+", 4, "/", 2, "/", 1))
+//
+// 	assert.Equal(t, 5, CalculateUsing4Operands(6, "-", 4, "+", 2, "+", 1))
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "-", 4, "+", 2, "-", 1))
+// 	assert.Equal(t, 4, CalculateUsing4Operands(6, "-", 4, "+", 2, "*", 1))
+// 	assert.Equal(t, 4, CalculateUsing4Operands(6, "-", 4, "+", 2, "/", 1))
+//
+// 	assert.Equal(t, 1, CalculateUsing4Operands(6, "-", 4, "-", 2, "+", 1))
+// 	assert.Equal(t, -1, CalculateUsing4Operands(6, "-", 4, "-", 2, "-", 1))
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "-", 4, "-", 2, "*", 1))
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "-", 4, "-", 2, "/", 1))
+//
+// 	assert.Equal(t, -1, CalculateUsing4Operands(6, "-", 4, "*", 2, "+", 1))
+// 	assert.Equal(t, -3, CalculateUsing4Operands(6, "-", 4, "*", 2, "-", 1))
+// 	assert.Equal(t, -2, CalculateUsing4Operands(6, "-", 4, "*", 2, "*", 1))
+// 	assert.Equal(t, -2, CalculateUsing4Operands(6, "-", 4, "*", 2, "/", 1))
+//
+// 	assert.Equal(t, 5, CalculateUsing4Operands(6, "-", 4, "/", 2, "+", 1))
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "-", 4, "/", 2, "-", 1))
+// 	assert.Equal(t, 4, CalculateUsing4Operands(6, "-", 4, "/", 2, "*", 1))
+// 	assert.Equal(t, 4, CalculateUsing4Operands(6, "-", 4, "/", 2, "/", 1))
+//
+// 	assert.Equal(t, 27, CalculateUsing4Operands(6, "*", 4, "+", 2, "+", 1))
+// 	assert.Equal(t, 25, CalculateUsing4Operands(6, "*", 4, "+", 2, "-", 1))
+// 	assert.Equal(t, 26, CalculateUsing4Operands(6, "*", 4, "+", 2, "*", 1))
+// 	assert.Equal(t, 26, CalculateUsing4Operands(6, "*", 4, "+", 2, "/", 1))
+//
+// 	assert.Equal(t, 23, CalculateUsing4Operands(6, "*", 4, "-", 2, "+", 1))
+// 	assert.Equal(t, 20, CalculateUsing4Operands(6, "*", 4, "-", 2, "-", 1))
+// 	assert.Equal(t, 22, CalculateUsing4Operands(6, "*", 4, "-", 2, "*", 1))
+// 	assert.Equal(t, 22, CalculateUsing4Operands(6, "*", 4, "-", 2, "/", 1))
+//
+// 	assert.Equal(t, 49, CalculateUsing4Operands(6, "*", 4, "*", 2, "+", 1))
+// 	assert.Equal(t, 47, CalculateUsing4Operands(6, "*", 4, "*", 2, "-", 1))
+// 	assert.Equal(t, 48, CalculateUsing4Operands(6, "*", 4, "*", 2, "*", 1))
+// 	assert.Equal(t, 48, CalculateUsing4Operands(6, "*", 4, "*", 2, "/", 1))
+//
+// 	assert.Equal(t, 13, CalculateUsing4Operands(6, "*", 4, "/", 2, "+", 1))
+// 	assert.Equal(t, 11, CalculateUsing4Operands(6, "*", 4, "/", 2, "-", 1))
+// 	assert.Equal(t, 12, CalculateUsing4Operands(6, "*", 4, "/", 2, "*", 1))
+// 	assert.Equal(t, 12, CalculateUsing4Operands(6, "*", 4, "/", 2, "/", 1))
+//
+// 	assert.Equal(t, 4, CalculateUsing4Operands(6, "/", 4, "+", 2, "+", 1))
+// 	assert.Equal(t, 2, CalculateUsing4Operands(6, "/", 4, "+", 2, "-", 1))
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "/", 4, "+", 2, "*", 1))
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "/", 4, "+", 2, "/", 1))
+//
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "/", 4, "-", 2, "+", 1))
+// 	assert.Equal(t, -2, CalculateUsing4Operands(6, "/", 4, "-", 2, "-", 1))
+// 	assert.Equal(t, -1, CalculateUsing4Operands(6, "/", 4, "-", 2, "*", 1))
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "/", 4, "-", 2, "/", 1))
+//
+// 	assert.Equal(t, 3, CalculateUsing4Operands(6, "/", 4, "*", 2, "+", 1))
+// 	assert.Equal(t, 1, CalculateUsing4Operands(6, "/", 4, "*", 2, "-", 1))
+// 	assert.Equal(t, 2, CalculateUsing4Operands(6, "/", 4, "*", 2, "*", 1))
+// 	assert.Equal(t, 2, CalculateUsing4Operands(6, "/", 4, "*", 2, "/", 1))
+//
+// 	assert.Equal(t, 1, CalculateUsing4Operands(6, "/", 4, "/", 2, "+", 1))
+// 	assert.Equal(t, -1, CalculateUsing4Operands(6, "/", 4, "/", 2, "-", 1))
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "/", 4, "/", 2, "*", 1))
+// 	assert.Equal(t, 0, CalculateUsing4Operands(6, "/", 4, "/", 2, "/", 1))
+// }
